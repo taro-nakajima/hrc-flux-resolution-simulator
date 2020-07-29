@@ -1,0 +1,125 @@
+<html>
+    <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153566682-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153566682-5');
+</script>
+  <!-- Plotly.js -->
+  <meta charset="UTF-8">
+  <script src="plotly-latest.min.js"></script> <!--downloaded on 20th Mar 2020-->
+  <script src="hrc_flux_reso_simulator.js?20200320"></script>
+  <link rel="stylesheet" type="text/css" href="./common.css">
+  <title>Flux/Resolution Simulator of HRC(BL12)</title>
+</head>
+
+<body onload="draw()">  
+  <div class="fullbox">
+    <table class="header_table">
+        <tr>
+            <td ><font class="mytitle">Flux/Resolution Simulator of HRC(BL12)</font> <font color="white">ver</font> <font color="white" id="verNum"></font></td>
+            <td class="menu_item"><a href="#sec_Setting" class="headerLink">Setting</a></td>
+            <td class="menu_item"><a href="#sec_Intensity" class="headerLink">Intensity</a></td>
+            <td class="menu_item"><a href="#sec_Resolution" class="headerLink">Resolution</a></td>
+            <td class="dummy_text">-----</td>
+        </tr>
+    </table>
+    </div>
+<br />
+
+<div class="mainbody">
+
+
+  <div class="dummy_space1" id="sec_Setting">-</div>
+  <div class="dummy_space2">-</div>
+  
+  <div class="section_02">Setting</div>
+
+  <table>
+    <tr>
+      <td>
+        <b>Setting 1</b><br>
+
+        Fermi chopper :
+        <select id="ChopperSetiing1">
+          <option value="FermiA_100Hz">Fermi A: 100 Hz</option>
+          <option value="FermiA_200Hz" selected>Fermi A: 200 Hz</option>
+          <option value="FermiA_300Hz">Fermi A: 300 Hz</option>
+          <option value="FermiA_400Hz">Fermi A: 400 Hz</option>
+          <option value="FermiA_500Hz">Fermi A: 500 Hz</option>
+          <option value="FermiA_600Hz">Fermi A: 600 Hz</option>
+          <option value="FermiB_100Hz">Fermi B: 100 Hz</option>
+          <option value="FermiB_200Hz">Fermi B: 200 Hz</option>
+          <option value="FermiB_300Hz">Fermi B: 300 Hz</option>
+          <option value="FermiB_400Hz">Fermi B: 400 Hz</option>
+          <option value="FermiB_500Hz">Fermi B: 500 Hz</option>
+          <option value="FermiB_600Hz">Fermi B: 600 Hz</option>
+        </select> <br />
+        Target <i>E</i><sub>i</sub> : <input type="text" size="5" id="targetEi1" value="40"> meV <br />
+        Upper limit of <i>E</i><sub>i</sub> : <input type="text" size="5" id="upperLimitEi1" value="8000"> meV <br />
+        <i>E</i><sub>i(1)</sub>=<font id="E1_1"> </font> meV  <br />
+        <i>E</i><sub>i(2)</sub>=<font id="E2_1"> </font> meV <br />
+        <i>E</i><sub>i(3)</sub>=<font id="E3_1"> </font> meV <br />
+        <i>E</i><sub>i(4)</sub>=<font id="E4_1"> </font> meV <br />
+        <i>E</i><sub>i(5)</sub>=<font id="E5_1"> </font> meV
+      </td>
+      <td width="50">
+      </td>
+      <td>
+        <b>Setting 2</b><br>
+        Fermi chopper :
+        <select id="ChopperSetiing2">
+          <option value="none" selected>none</option>
+          <option value="FermiA_100Hz">Fermi A: 100 Hz</option>
+          <option value="FermiA_200Hz">Fermi A: 200 Hz</option>
+          <option value="FermiA_300Hz">Fermi A: 300 Hz</option>
+          <option value="FermiA_400Hz">Fermi A: 400 Hz</option>
+          <option value="FermiA_500Hz">Fermi A: 500 Hz</option>
+          <option value="FermiA_600Hz">Fermi A: 600 Hz</option>
+          <option value="FermiB_100Hz">Fermi B: 100 Hz</option>
+          <option value="FermiB_200Hz">Fermi B: 200 Hz</option>
+          <option value="FermiB_300Hz">Fermi B: 300 Hz</option>
+          <option value="FermiB_400Hz">Fermi B: 400 Hz</option>
+          <option value="FermiB_500Hz">Fermi B: 500 Hz</option>
+          <option value="FermiB_600Hz">Fermi B: 600 Hz</option>
+        </select> <br />
+        Target <i>E</i><sub>i</sub> : <input type="text" size="5" id="targetEi2" value="40"> meV <br />
+        Upper limit of <i>E</i><sub>i</sub> : <input type="text" size="5" id="upperLimitEi2" value="8000"> meV <br />
+        <i>E</i><sub>i(1)</sub>=<font id="E1_2"> </font> meV  <br />
+        <i>E</i><sub>i(2)</sub>=<font id="E2_2"> </font> meV <br />
+        <i>E</i><sub>i(3)</sub>=<font id="E3_2"> </font> meV <br />
+        <i>E</i><sub>i(4)</sub>=<font id="E4_2"> </font> meV <br />
+        <i>E</i><sub>i(5)</sub>=<font id="E5_2"> </font> meV
+
+      </td>
+
+    </tr>
+  </table>
+  
+ <br />
+<input type="button" value="   set   " onclick="draw()"/><br />
+
+<div class="dummy_space1" id="sec_Intensity">-</div>
+<div class="dummy_space2">-</div>
+
+<div class="section_02">Intensity</div>
+<div id="IntPlot" style="width: 100%"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+
+<div class="dummy_space1" id="sec_Resolution">-</div>
+<div class="dummy_space2">-</div>
+<div class="section_02">Energy Resolution</div>
+<input type="radio" name="reso_select" value="relative" checked> Relative (dE/E), <input type="radio" name="reso_select" value="absolute"> Absolute (dE) <br />
+<input type="button" value="   set   " onclick="draw()"/><br />
+
+<div id="ResolutionPlot" style="width: 100%"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+<div class="footer"> Version <font id="verNum2"></font> by <a href="https://nakajima.issp.u-tokyo.ac.jp">T. Nakajima</a>, 2020.</div>
+</div><!--end of mainbody-->
+</body>
+</html>
+
