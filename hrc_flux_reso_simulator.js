@@ -869,27 +869,22 @@ function draw(){
       for (let ii=0;ii<trace3_cal_x.length;ii++){
         trace3_cal_y[ii]=trace3_cal_y[ii]*trace3_cal_x[ii];
       }
-//      if(document.getElementById('ChopperSetiing1').value!='FermiA_300Hz'){
-        for (let ii=0;ii<trace3_obs_x.length;ii++){
-          trace3_obs_y[ii]=trace3_obs_y[ii]*trace3_obs_x[ii];
-        }
-        Ymax_Reso=trace3_obs_y[trace3_obs_x.length-1]*1.1;
-//      }
-//      else{
-        Ymax_Reso=40;
-//      }
+      for (let ii=0;ii<trace3_obs_x.length;ii++){
+        trace3_obs_y[ii]=trace3_obs_y[ii]*trace3_obs_x[ii];
+      }
+      Ymax_Reso=trace3_obs_y[trace3_obs_x.length-1]*1.1;
+      Ymax_Reso=40;
+
       if((document.getElementById('ChopperSetiing2').value!='none')){
         for (let ii=0;ii<trace4_cal_x.length;ii++){
           trace4_cal_y[ii]=trace4_cal_y[ii]*trace4_cal_x[ii];
         }
-//        if(document.getElementById('ChopperSetiing2').value!='FermiA_300Hz'){
-          for (let ii=0;ii<trace3_obs_x.length;ii++){
-            trace4_obs_y[ii]=trace4_obs_y[ii]*trace4_obs_x[ii];
-          }
-          if(trace4_obs_y[trace4_obs_x.length-1]*1.1 > Ymax_Reso){
-            Ymax_Reso=trace4_obs_y[trace4_obs_x.length-1]*1.1;
-          }
-//        }
+        for (let ii=0;ii<trace3_obs_x.length;ii++){
+          trace4_obs_y[ii]=trace4_obs_y[ii]*trace4_obs_x[ii];
+        }
+        if(trace4_obs_y[trace4_obs_x.length-1]*1.1 > Ymax_Reso){
+          Ymax_Reso=trace4_obs_y[trace4_obs_x.length-1]*1.1;
+        }
   
       }
     }
