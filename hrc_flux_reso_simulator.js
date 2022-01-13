@@ -879,7 +879,7 @@ function draw(){
         for (let ii=0;ii<trace4_cal_x.length;ii++){
           trace4_cal_y[ii]=trace4_cal_y[ii]*trace4_cal_x[ii];
         }
-        for (let ii=0;ii<trace3_obs_x.length;ii++){
+        for (let ii=0;ii<trace4_obs_x.length;ii++){
           trace4_obs_y[ii]=trace4_obs_y[ii]*trace4_obs_x[ii];
         }
         if(trace4_obs_y[trace4_obs_x.length-1]*1.1 > Ymax_Reso){
